@@ -17,11 +17,14 @@ namespace PaulSodimu.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            //Act
-            Pages.HomePage.Goto();
+            //Arrange
+            Pages.LoginPage.Goto();
 
-            //Assert
-            Assert.IsTrue(Pages.HomePage.IsAt());
+            //Act
+            Pages.LoginPage.Logon();
+
+            //Assert - Check we are no longer at the login page. If we are still here we know the login has failed.
+            Assert.IsFalse(Pages.LoginPage.IsAt());
         }
 
         [TestCleanup]

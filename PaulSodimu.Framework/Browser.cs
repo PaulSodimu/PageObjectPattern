@@ -15,6 +15,9 @@ namespace PaulSodimu.Framework
         private static IWebDriver WebDriver;
 
         #region Internal Methods and properties
+
+        //Here we wrap the web driver properties and methods 
+
         internal static string Title
         {
             get { return WebDriver.Title; }
@@ -97,6 +100,7 @@ namespace PaulSodimu.Framework
         {
             try
             {
+                //Here we read the type of webdriver we want from the app settings, then create an instance of it
                 WebDriver = (IWebDriver)Activator.CreateInstance("WebDriver", Setup.Settings.Browser).Unwrap();
             }
             catch (ArgumentNullException e1)
